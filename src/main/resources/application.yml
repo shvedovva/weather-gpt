@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: weather
+  profiles:
+    active: stub-owm
+  datasource:
+    url: jdbc:h2:mem:weather;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc.time_zone: UTC
+  thymeleaf:
+    cache: false
+flyway:
+  enabled: true
+
+app:
+  session:
+    duration-hours: 24
+    cookie-name: WEATHER_SESSION
+    secure: false
+  openweather:
+    api-key: ${OPENWEATHER_API_KEY:test-key}
+    base-url: https://api.openweathermap.org
+    timeout-ms: 3000
+    default-lang: ru
+    default-units: metric
+
+server:
+  port: 8080
