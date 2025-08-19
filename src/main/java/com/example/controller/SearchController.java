@@ -36,9 +36,9 @@ public class SearchController {
 
     @PostMapping("/add")
     public String add(@ModelAttribute("currentUser") CurrentUser currentUser,
-                      @RequestParam String name,
-                      @RequestParam BigDecimal lat,
-                      @RequestParam BigDecimal lon) {
+                      @RequestParam("name") String name,
+                      @RequestParam("lat") BigDecimal lat,
+                      @RequestParam("lon") BigDecimal lon) {
         if (currentUser == null) return "redirect:/login";
         locationService.add(currentUser.id(), name, lat, lon);
         return "redirect:/";
