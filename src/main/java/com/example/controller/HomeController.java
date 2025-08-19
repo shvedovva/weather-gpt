@@ -49,7 +49,7 @@ public class HomeController {
     }
 
     @PostMapping("/locations/{id}/delete")
-    public String delete(@ModelAttribute("currentUser") CurrentUser currentUser, @PathVariable Long id) {
+    public String delete(@ModelAttribute("currentUser") CurrentUser currentUser, @PathVariable("id") Long id) {
         if (currentUser == null) return "redirect:/login";
         locationService.remove(currentUser.id(), id);
         return "redirect:/";

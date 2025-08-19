@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Service
-@Profile("stub-owm")
+@Profile("!stub-owm")
 public class OpenWeatherStubClient implements OpenWeatherClient {
 
     @Override
