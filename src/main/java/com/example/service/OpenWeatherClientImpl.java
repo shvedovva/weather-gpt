@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-@Profile("stub-owm")
+@Profile("!stub-owm")
 public class OpenWeatherClientImpl implements OpenWeatherClient {
     private final WebClient webClient;
     private final String apiKey;
